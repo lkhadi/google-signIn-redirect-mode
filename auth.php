@@ -25,7 +25,6 @@ class auth{
 	function verification($code){
 		$id_token = $this->client->authenticate($code);
 		$payload = $this->client->verifyIdToken($id_token['id_token']);
-		// $this->client->setAccessToken($id_token['access_token']);
 		session_start();
 		$_SESSION['refresh_token'] = $this->client->getRefreshToken();
 		$_SESSION['access_token'] = $this->client->getAccessToken();
